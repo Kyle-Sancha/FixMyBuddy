@@ -23,7 +23,9 @@ export function MechanicRoutes() {
   return (
     <Routes>
       <Route index element={<Welcome />} />
-      <Route path="sign-in" element={<SignIn />} />
+      <Route path="signin" element={<SignIn />} />
+      <Route path="sign-in" element={<Navigate to="/mechanic/signin" replace />} />
+      <Route path="login" element={<Navigate to="/mechanic/signin" replace />} />
 
       <Route element={<MechanicLayout />}>
         <Route path="availability" element={<Availability />} />

@@ -9,6 +9,7 @@ import {
   Truck,
   UserRound,
 } from 'lucide-react';
+import { MechanicHeader } from '../components/MechanicHeader';
 
 const accountLinks = [
   {
@@ -46,59 +47,54 @@ const accountLinks = [
 export function Account() {
   return (
     <div className="pb-4">
-      <header className="mb-5">
-        <h1 className="m-0 text-xl font-bold">Provider account</h1>
-        <p className="mb-0 mt-1 text-xs text-[#aebbd0]">
-          Manage your profile and work preferences.
-        </p>
-      </header>
+      <MechanicHeader showBrand={false} title="Provider account" subtitle="Manage your profile and work preferences." />
 
-      <section className="flex items-center gap-3 rounded-xl border border-[#34435b] bg-[#1c293d] p-3.5">
-        <span className="grid h-12 w-12 place-items-center rounded-full bg-[#24364d] font-bold text-[#ffda45]">
+      <section className="flex items-center gap-3 rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3.5">
+        <span className="grid h-12 w-12 place-items-center rounded-full bg-[rgb(var(--fmb-selected))] font-bold text-[rgb(var(--fmb-accent))]">
           MS
         </span>
         <span className="min-w-0 flex-1">
-          <strong className="block text-sm">Miguel Santos</strong>
-          <small className="mt-1 block text-xs text-[#aebbd0]">
+          <strong className="block text-base">Miguel Santos</strong>
+          <small className="mt-1 block text-base text-[rgb(var(--fmb-muted))]">
             Provider · Verified mobile
           </small>
         </span>
-        <ShieldCheck size={19} className="text-[#80dfc6]" />
+        <ShieldCheck size={19} className="text-[rgb(var(--fmb-success))]" />
       </section>
 
       <div className="mb-3 mt-6 flex items-center justify-between">
-        <h2 className="m-0 text-sm font-semibold">Account settings</h2>
+        <h2 className="m-0 text-base font-semibold">Account settings</h2>
         <Link
           to="/mechanic/availability"
-          className="text-xs font-semibold text-[#ffda45]"
+          className="text-base font-semibold text-[rgb(var(--fmb-accent))]"
         >
           Edit availability
         </Link>
       </div>
 
-      <section className="overflow-hidden rounded-xl border border-[#34435b] bg-[#1c293d]">
+      <section className="overflow-hidden rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))]">
         {accountLinks.map(({ title, detail, icon: Icon }, index) => (
           <button
             key={title}
             type="button"
             className={[
-              'flex min-h-[68px] w-full items-center gap-3 px-3.5 text-left hover:bg-white/5',
-              index < accountLinks.length - 1 ? 'border-b border-[#34435b]' : '',
+              'flex min-h-[68px] w-full items-center gap-3 px-3.5 text-left hover:bg-[rgb(var(--fmb-text)/0.05)]',
+              index < accountLinks.length - 1 ? 'border-b border-[rgb(var(--fmb-border))]' : '',
             ].join(' ')}
           >
-            <Icon size={18} className="shrink-0 text-[#ffda45]" />
+            <Icon size={18} className="shrink-0 text-[rgb(var(--fmb-accent))]" />
             <span className="min-w-0 flex-1">
-              <strong className="block text-xs font-semibold">{title}</strong>
-              <small className="mt-1 block text-xs text-[#aebbd0]">
+              <strong className="block text-base font-semibold">{title}</strong>
+              <small className="mt-1 block text-base text-[rgb(var(--fmb-muted))]">
                 {detail}
               </small>
             </span>
-            <ChevronRight size={17} className="text-[#aebbd0]" />
+            <ChevronRight size={17} className="text-[rgb(var(--fmb-muted))]" />
           </button>
         ))}
       </section>
 
-      <div className="mt-4 rounded-xl bg-[#1c293d] p-3.5 text-xs leading-5 text-[#aebbd0]">
+      <div className="mt-4 rounded-xl bg-[rgb(var(--fmb-panel))] p-3.5 text-base leading-5 text-[rgb(var(--fmb-muted))]">
         <p className="m-0">
           Provider verification helps customers trust who is responding to
           their roadside request.
@@ -107,7 +103,7 @@ export function Account() {
 
       <Link
         to="/mechanic"
-        className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-[#34435b] bg-[#1c293d] text-sm font-semibold text-white"
+        className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] text-base font-semibold text-[rgb(var(--fmb-text))]"
       >
         Sign out
       </Link>

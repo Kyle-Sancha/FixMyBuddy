@@ -23,7 +23,7 @@ export function Jobs() {
         subtitle="Good morning, Miguel · Online · 15 km radius"
       />
 
-      <section className="mb-2 overflow-hidden rounded-xl border border-[#34435b] bg-[#1c293d]">
+      <section className="mb-2 overflow-hidden rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))]">
         <div className="relative h-[108px] overflow-hidden bg-[#dce8e4] text-[#476777]">
           <svg
             aria-hidden="true"
@@ -39,17 +39,17 @@ export function Jobs() {
             <path d="M62 147 172 147 259 88 416 88 518 39" fill="none" stroke="#356ca0" strokeWidth="7" />
             <path d="M62 147 172 147 259 88 416 88 518 39" fill="none" stroke="#ffda45" strokeWidth="2" />
           </svg>
-          <span className="absolute left-2 top-2 inline-flex items-center gap-1.5 rounded bg-[#10192d] px-2.5 py-1.5 text-[10px] font-semibold text-white">
+          <span className="absolute left-2 top-2 inline-flex items-center gap-1.5 rounded bg-[rgb(var(--fmb-bg))] px-2.5 py-1.5 text-base font-semibold text-[rgb(var(--fmb-text))]">
             3 requests nearby
           </span>
-          <span className="absolute right-2 top-2 text-[9px]">Panganiban Drive</span>
-          <span className="absolute bottom-2 left-2 text-[9px]">Mabolo Road</span>
-          <span className="absolute bottom-2 right-10 text-[9px]">Naga City</span>
-          <span className="absolute bottom-2 right-2 text-[9px] italic">Naga River</span>
-          <span className="absolute left-[20%] top-[54%] grid h-7 w-7 place-items-center rounded-full border-2 border-[#10192d] bg-[#ffda45] text-[#10192d]">
+          <span className="absolute right-2 top-2 text-base">Panganiban Drive</span>
+          <span className="absolute bottom-2 left-2 text-base">Mabolo Road</span>
+          <span className="absolute bottom-2 right-10 text-base">Naga City</span>
+          <span className="absolute bottom-2 right-2 text-base italic">Naga River</span>
+          <span className="absolute left-[20%] top-[54%] grid h-7 w-7 place-items-center rounded-full border-2 border-[rgb(var(--fmb-bg))] bg-[rgb(var(--fmb-accent))] text-[rgb(var(--fmb-bg))]">
             <CarFront size={15} />
           </span>
-          <span className="absolute right-[18%] top-[18%] grid h-7 w-7 place-items-center rounded-full border-2 border-[#10192d] bg-[#ffda45] text-[#10192d]">
+          <span className="absolute right-[18%] top-[18%] grid h-7 w-7 place-items-center rounded-full border-2 border-[rgb(var(--fmb-bg))] bg-[rgb(var(--fmb-accent))] text-[rgb(var(--fmb-bg))]">
             <MapPin size={15} />
           </span>
         </div>
@@ -57,64 +57,64 @@ export function Jobs() {
 
       <Link
         to={`/mechanic/jobs/${sampleJob.id}`}
-        className="mb-4 block rounded-xl border border-[#6b5b2d] bg-[#39321e] p-3 text-inherit no-underline"
+        className="mb-4 block rounded-xl border border-[rgb(var(--fmb-accent)/0.4)] bg-[rgb(var(--fmb-accent)/0.12)] p-3 text-inherit no-underline"
       >
         <div className="flex items-center justify-between gap-3">
-          <h2 className="m-0 text-sm font-semibold">Incoming · Battery</h2>
-          <span className="text-[10px] font-semibold text-[#ffda45]">New offer</span>
+          <h2 className="m-0 text-base font-semibold">Incoming · Battery</h2>
+          <span className="text-base font-semibold text-[rgb(var(--fmb-accent))]">New offer</span>
         </div>
-        <div className="mt-2 flex items-center justify-between gap-3 text-xs">
-          <span className="inline-flex min-w-0 items-center gap-2 text-[#c4cede]">
+        <div className="mt-2 flex items-center justify-between gap-3 text-base">
+          <span className="inline-flex min-w-0 items-center gap-2 text-[rgb(var(--fmb-secondary))]">
             <CarFront size={16} className="shrink-0" />
             <span className="truncate">Alex Reyes · Toyota Vios</span>
           </span>
           <strong className="shrink-0">2.4 km</strong>
         </div>
-        <p className="mb-3 mt-2 text-xs text-[#c4cede]">Mabolo Road · Clicking, won’t start</p>
-        <span className="flex min-h-10 items-center justify-center gap-2 rounded-lg bg-[#ffda45] px-2 text-xs font-bold text-[#10192d]">
+        <p className="mb-3 mt-2 text-base text-[rgb(var(--fmb-secondary))]">Mabolo Road · Clicking, won’t start</p>
+        <span className="flex min-h-10 items-center justify-center gap-2 rounded-lg bg-[rgb(var(--fmb-accent))] px-2 text-base font-bold text-[rgb(var(--fmb-bg))]">
           Review job · ₱405 estimated net
         </span>
       </Link>
 
-      <h2 className="mb-2 mt-4 text-sm font-semibold">Today so far</h2>
-      <section className="mb-4 rounded-xl border border-[#34435b] bg-[#1c293d] p-3">
-        <div className="flex items-center justify-between gap-3 text-xs">
-          <span className="inline-flex items-center gap-2 text-[#aebbd0]">
+      <h2 className="mb-2 mt-4 text-base font-semibold">Today so far</h2>
+      <section className="mb-4 rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3">
+        <div className="flex items-center justify-between gap-3 text-base">
+          <span className="inline-flex items-center gap-2 text-[rgb(var(--fmb-muted))]">
             <Wallet size={16} /> Gross earnings
           </span>
           <strong>₱0</strong>
         </div>
-        <div className="mt-2 flex items-center justify-between gap-3 text-xs">
-          <span className="text-[#aebbd0]">Completed jobs</span>
+        <div className="mt-2 flex items-center justify-between gap-3 text-base">
+          <span className="text-[rgb(var(--fmb-muted))]">Completed jobs</span>
           <strong>0 · Fresh start</strong>
         </div>
       </section>
 
       <div className="mb-3 mt-6 flex items-center justify-between">
-        <h2 className="m-0 text-sm font-semibold">Scheduled next</h2>
+        <h2 className="m-0 text-base font-semibold">Scheduled next</h2>
         <Link
           to="/mechanic/jobs"
-          className="text-xs font-semibold text-[#ffda45]"
+          className="text-base font-semibold text-[rgb(var(--fmb-accent))]"
         >
           View schedule
         </Link>
       </div>
 
-      <article className="flex items-center gap-3 rounded-xl border border-[#34435b] bg-[#1c293d] p-3">
+      <article className="flex items-center gap-3 rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3">
         <CalendarDays
           size={19}
-          className="shrink-0 text-[#aebbd0]"
+          className="shrink-0 text-[rgb(var(--fmb-muted))]"
           aria-hidden="true"
         />
         <div className="min-w-0 flex-1">
-          <strong className="block text-xs font-medium">
+          <strong className="block text-base font-medium">
             Alex · Battery check
           </strong>
-          <span className="mt-1 block text-xs text-[#aebbd0]">
+          <span className="mt-1 block text-base text-[rgb(var(--fmb-muted))]">
             9:00 AM · FMB-1051 · ₱450 visit
           </span>
         </div>
-        <span className="shrink-0 text-xs text-[#aebbd0]">21 Oct</span>
+        <span className="shrink-0 text-base text-[rgb(var(--fmb-muted))]">21 Oct</span>
       </article>
     </div>
   );

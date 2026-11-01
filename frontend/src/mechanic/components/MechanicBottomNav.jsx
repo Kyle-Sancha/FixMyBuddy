@@ -12,7 +12,7 @@ export function MechanicBottomNav() {
   return (
     <nav
       aria-label="Mechanic navigation"
-      className="grid grid-cols-4 border-t border-[#26354d] bg-[#17243a] px-2 pb-2 pt-2"
+      className="grid grid-cols-4 border-t border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] px-2 pb-2 pt-2"
     >
       {navigationItems.map(({ label, to, icon: Icon }) => (
         <NavLink
@@ -20,10 +20,10 @@ export function MechanicBottomNav() {
           to={to}
           className={({ isActive }) =>
             [
-              'flex min-h-[52px] flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-colors',
+              'flex min-h-[52px] flex-col items-center justify-center gap-1 rounded-xl text-base transition-colors',
               isActive
-                ? 'bg-[#24364d] font-semibold text-[#ffda45]'
-                : 'text-[#aebbd0] hover:text-white',
+                ? 'bg-[rgb(var(--fmb-selected))] font-semibold text-[rgb(var(--fmb-accent))]'
+                : 'text-[rgb(var(--fmb-muted))] hover:text-[rgb(var(--fmb-text))]',
             ].join(' ')
           }
         >

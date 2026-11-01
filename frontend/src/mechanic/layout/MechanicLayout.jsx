@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft,
   Bell,
   BriefcaseBusiness,
   CircleUserRound,
   Wallet,
-  Wrench,
 } from 'lucide-react';
+import { BrandLogo } from '../../../customer-side/src/components/BrandLogo';
+import { RoleGuard } from '../../../customer-side/src/components/auth/RoleGuard';
 
 const navigationItems = [
   {
@@ -65,66 +66,61 @@ export function MechanicLayout() {
   }, [pathname]);
 
   return (
-    <div className="min-h-dvh bg-[#090f1e] text-white">
-      <div className="mx-auto flex min-h-dvh w-full max-w-[488px] flex-col border-x border-white/5 bg-[#10192d]">
-        <header className="flex h-[72px] shrink-0 items-center justify-between px-5">
-          <div className="flex items-center gap-3">
+    <RoleGuard allowedRoles={['mechanic']} signInPath="/mechanic/signin">
+    <div className="auth-root customer-root mechanic-root">
+      <div className="customer-shell">
+        <header className="customer-header">
+          <div className="mechanic-header-brand">
             {showBack ? (
               <button
                 type="button"
                 onClick={() => navigate(-1)}
                 aria-label="Go back"
-                className="grid h-9 w-9 place-items-center rounded-xl bg-[#1c293d] text-[#ffda45]"
+                className="auth-back"
               >
                 <ArrowLeft size={19} />
               </button>
             ) : (
-              <span
-                aria-hidden="true"
-                className="grid h-9 w-9 place-items-center rounded-xl bg-[#1c293d] text-[#ffda45]"
+              <Link
+                to="/mechanic/jobs"
+                className="auth-brand"
+                aria-label="FixMyBuddy Pro home"
               >
-                <Wrench size={19} strokeWidth={2.2} />
-              </span>
+                <BrandLogo />
+                <span>FixMyBuddy</span>
+              </Link>
             )}
-            <span className="text-sm font-medium tracking-wide">
-              FixMyBuddy
-            </span>
           </div>
 
-          <span className="rounded-md bg-[#ffda45] px-2.5 py-1 text-[10px] font-bold leading-none text-[#111827]">
-            PRO
-          </span>
+          {!isJobDetail && (
+            <nav aria-label="Mechanic navigation" className="customer-nav">
+              {navigationItems.map(({ label, to, icon: Icon }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  end
+                  className={({ isActive }) =>
+                    isActive ||
+                    (to === '/mechanic/account' && pathname.startsWith('/mechanic/availability'))
+                      ? 'is-active'
+                      : ''
+                  }
+                >
+                  <Icon size={22} aria-hidden="true" />
+                  <span>{label}</span>
+                </NavLink>
+              ))}
+            </nav>
+          )}
+
+          <span className="auth-customer-tag">PRO</span>
         </header>
 
-        <main className="min-h-0 flex-1 px-5 pb-6">
+        <main id="customer-main" className="customer-page" tabIndex={-1}>
           <Outlet />
         </main>
-
-        {!isJobDetail && (
-          <nav
-            aria-label="Mechanic navigation"
-            className="sticky bottom-0 z-10 grid grid-cols-4 border-t border-[#26354d] bg-[#17243a] px-2 pb-2 pt-2"
-          >
-            {navigationItems.map(({ label, to, icon: Icon }) => (
-              <NavLink
-                key={to}
-                to={to}
-                className={({ isActive }) =>
-                  [
-                    'flex min-h-[52px] flex-col items-center justify-center gap-1 rounded-xl text-[10px] transition-colors',
-                    isActive
-                      ? 'bg-[#24364d] font-semibold text-[#ffda45]'
-                      : 'text-[#aebbd0] hover:text-white',
-                  ].join(' ')
-                }
-              >
-                <Icon size={19} strokeWidth={1.9} aria-hidden="true" />
-                <span>{label}</span>
-              </NavLink>
-            ))}
-          </nav>
-        )}
       </div>
     </div>
+    </RoleGuard>
   );
 }

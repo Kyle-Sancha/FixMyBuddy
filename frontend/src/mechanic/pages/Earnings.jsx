@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarDays, CarFront, ChevronRight } from 'lucide-react';
 import { EarningsSummary } from '../components/EarningsSummary';
+import { MechanicHeader } from '../components/MechanicHeader';
 
 const periods = ['Today', 'This week', 'This month'];
 
@@ -10,12 +11,7 @@ export function Earnings() {
 
   return (
     <div className="pb-4">
-      <header className="mb-5">
-        <h1 className="m-0 text-xl font-bold">Your work. Your earnings.</h1>
-        <p className="mb-0 mt-1 text-xs text-[#aebbd0]">
-          Monday, 19 October 2026
-        </p>
-      </header>
+      <MechanicHeader showBrand={false} title="Your work. Your earnings." subtitle="Monday, 19 October 2026" />
 
       <div className="mb-4 flex gap-2">
         {periods.map((item) => (
@@ -25,10 +21,10 @@ export function Earnings() {
             aria-pressed={period === item}
             onClick={() => setPeriod(item)}
             className={[
-              'min-h-9 rounded-full border px-3 text-xs',
+              'min-h-9 rounded-full border px-3 text-base',
               period === item
-                ? 'border-[#ffda45] bg-[#ffda45]/15 font-semibold text-[#ffda45]'
-                : 'border-[#34435b] bg-[#1c293d] text-[#aebbd0]',
+                ? 'border-[rgb(var(--fmb-accent))] bg-[rgb(var(--fmb-accent)/0.15)] font-semibold text-[rgb(var(--fmb-accent))]'
+                : 'border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] text-[rgb(var(--fmb-muted))]',
             ].join(' ')}
           >
             {item}
@@ -45,55 +41,55 @@ export function Earnings() {
       />
 
       <div className="mb-3 mt-6 flex items-center justify-between">
-        <h2 className="m-0 text-sm font-semibold">Job history</h2>
+        <h2 className="m-0 text-base font-semibold">Job history</h2>
         <button
           type="button"
-          className="inline-flex min-h-9 items-center gap-1 text-xs font-semibold text-[#ffda45]"
+          className="inline-flex min-h-9 items-center gap-1 text-base font-semibold text-[rgb(var(--fmb-accent))]"
         >
           View all
           <ChevronRight size={15} />
         </button>
       </div>
 
-      <section className="rounded-xl border border-[#34435b] bg-[#1c293d]">
+      <section className="rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))]">
         <Link
           to="/mechanic/jobs/FMB-1042/complete"
-          className="flex items-center gap-3 border-b border-[#34435b] p-3.5"
+          className="flex items-center gap-3 border-b border-[rgb(var(--fmb-border))] p-3.5"
         >
-          <CarFront size={18} className="shrink-0 text-[#aebbd0]" />
+          <CarFront size={18} className="shrink-0 text-[rgb(var(--fmb-muted))]" />
           <span className="min-w-0 flex-1">
-            <strong className="block text-xs font-medium">
+            <strong className="block text-base font-medium">
               FMB-1042 · Battery
             </strong>
-            <small className="mt-1 block text-xs text-[#aebbd0]">
+            <small className="mt-1 block text-base text-[rgb(var(--fmb-muted))]">
               19 Oct · Completed · Net ₱4,140
             </small>
           </span>
-          <strong className="shrink-0 text-xs">₱4,600</strong>
+          <strong className="shrink-0 text-base">₱4,600</strong>
         </Link>
 
-        <div className="flex items-center gap-3 border-b border-[#34435b] p-3.5">
-          <CarFront size={18} className="shrink-0 text-[#aebbd0]" />
+        <div className="flex items-center gap-3 border-b border-[rgb(var(--fmb-border))] p-3.5">
+          <CarFront size={18} className="shrink-0 text-[rgb(var(--fmb-muted))]" />
           <span className="min-w-0 flex-1">
-            <strong className="block text-xs font-medium">TOW-1036 · Towing</strong>
-            <small className="mt-1 block text-xs text-[#aebbd0]">
+            <strong className="block text-base font-medium">TOW-1036 · Towing</strong>
+            <small className="mt-1 block text-base text-[rgb(var(--fmb-muted))]">
               12 Oct · Completed · Net ₱1,350
             </small>
           </span>
-          <strong className="shrink-0 text-xs">₱1,500</strong>
+          <strong className="shrink-0 text-base">₱1,500</strong>
         </div>
 
         <div className="flex items-center gap-3 p-3.5">
-          <CalendarDays size={18} className="shrink-0 text-[#aebbd0]" />
+          <CalendarDays size={18} className="shrink-0 text-[rgb(var(--fmb-muted))]" />
           <span className="min-w-0 flex-1">
-            <strong className="block text-xs font-medium">
+            <strong className="block text-base font-medium">
               FMB-1051 · Battery check
             </strong>
-            <small className="mt-1 block text-xs text-[#aebbd0]">
+            <small className="mt-1 block text-base text-[rgb(var(--fmb-muted))]">
               21 Oct · 9:00 AM · Visit estimate ₱450
             </small>
           </span>
-          <span className="shrink-0 text-xs text-[#aebbd0]">Scheduled</span>
+          <span className="shrink-0 text-base text-[rgb(var(--fmb-muted))]">Scheduled</span>
         </div>
       </section>
     </div>

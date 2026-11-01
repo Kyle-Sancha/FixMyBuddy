@@ -1,14 +1,15 @@
 :root {
-  --mechanic-bg: #10192d;
-  --mechanic-bg-deep: #090f1e;
-  --mechanic-panel: #1c293d;
-  --mechanic-panel-raised: #24364d;
-  --mechanic-border: #34435b;
-  --mechanic-text: #ffffff;
-  --mechanic-muted: #aebbd0;
-  --mechanic-yellow: #ffda45;
-  --mechanic-success: #80dfc6;
-  --mechanic-danger: #ff9b8f;
+  /* Mechanic tokens reuse the shared FixMyBuddy theme (light/dark aware). */
+  --mechanic-bg: rgb(var(--fmb-bg));
+  --mechanic-bg-deep: rgb(var(--fmb-deep));
+  --mechanic-panel: rgb(var(--fmb-panel));
+  --mechanic-panel-raised: rgb(var(--fmb-selected));
+  --mechanic-border: rgb(var(--fmb-border));
+  --mechanic-text: rgb(var(--fmb-text));
+  --mechanic-muted: rgb(var(--fmb-muted));
+  --mechanic-yellow: rgb(var(--fmb-accent));
+  --mechanic-success: rgb(var(--fmb-success));
+  --mechanic-danger: rgb(var(--fmb-error));
 }
 
 .mechanic-public-shell {
@@ -18,7 +19,7 @@
   min-height: 100dvh;
   margin-inline: auto;
   padding: max(12px, env(safe-area-inset-top)) 20px 24px;
-  background: #10192d;
+  background: var(--mechanic-bg);
   color: var(--mechanic-text);
 }
 
@@ -58,12 +59,12 @@
 }
 
 .mechanic-field::placeholder {
-  color: #718097;
+  color: rgb(var(--fmb-muted2));
 }
 
 .mechanic-field:focus-visible {
   border-color: var(--mechanic-yellow);
-  outline: 2px solid rgb(255 218 69 / 25%);
+  outline: 2px solid rgb(var(--fmb-accent) / 25%);
   outline-offset: 2px;
 }
 
@@ -89,11 +90,11 @@
 
 .mechanic-primary-button {
   background: var(--mechanic-yellow);
-  color: #111827;
+  color: rgb(var(--fmb-ink));
 }
 
 .mechanic-primary-button:hover {
-  background: #ffe16a;
+  background: rgb(var(--fmb-brand-hover));
 }
 
 .mechanic-secondary-button {
@@ -137,7 +138,7 @@
 
 .mechanic-chip[data-selected='true'] {
   border-color: var(--mechanic-yellow);
-  background: rgb(255 218 69 / 12%);
+  background: rgb(var(--fmb-accent) / 12%);
   color: var(--mechanic-yellow);
 }
 

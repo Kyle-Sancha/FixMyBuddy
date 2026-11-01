@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Bell, History, House, UserRound } from 'lucide-react';
 import { BrandLogo } from '../BrandLogo';
+import { RoleGuard } from '../auth/RoleGuard';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useLocale } from '../../context/useLocale';
 
@@ -29,6 +30,7 @@ export function CustomerLayout() {
   }, [pathname, language]);
 
   return (
+    <RoleGuard allowedRoles={['customer']} signInPath="/signin">
     <div className="auth-root customer-root">
       <a href="#customer-main" className="auth-skip">
         {t('Skip to content','Pumunta sa nilalaman')}
@@ -43,36 +45,36 @@ export function CustomerLayout() {
             <BrandLogo />
             <span>FixMyBuddy</span>
           </Link>
+          <nav className="customer-nav" aria-label="Customer navigation">
+            {navigation.map(({ to, label, icon: Icon }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end
+                className={({ isActive }) =>
+                  isActive ||
+                  (to === '/account' &&
+                    (['/vehicles', '/location'].includes(pathname) || pathname.startsWith('/account/') || pathname.startsWith('/settings/') || pathname.startsWith('/help')))
+                    ? 'is-active'
+                    : ''
+                }
+              >
+                <Icon size={22} />
+                <span>{t(label, { Home: 'Home', History: 'Kasaysayan', Updates: 'Mga abiso', Account: 'Account' }[label])}</span>
+              </NavLink>
+            ))}
+          </nav>
           <span className="auth-customer-tag">ROADSIDE</span>
         </header>
         <main
           id="customer-main"
           className="customer-page"
-          key={pathname}
           tabIndex={-1}
         >
           <Outlet />
         </main>
-        <nav className="customer-nav" aria-label="Customer navigation">
-          {navigation.map(({ to, label, icon: Icon }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end
-              className={({ isActive }) =>
-                isActive ||
-                (to === '/account' &&
-                  (['/vehicles', '/location'].includes(pathname) || pathname.startsWith('/account/') || pathname.startsWith('/settings/') || pathname.startsWith('/help')))
-                  ? 'is-active'
-                  : ''
-              }
-            >
-              <Icon size={22} />
-              <span>{t(label, { Home: 'Home', History: 'Kasaysayan', Updates: 'Mga abiso', Account: 'Account' }[label])}</span>
-            </NavLink>
-          ))}
-        </nav>
       </div>
     </div>
+    </RoleGuard>
   );
 }

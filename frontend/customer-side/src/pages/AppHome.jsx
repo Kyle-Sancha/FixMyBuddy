@@ -140,7 +140,7 @@ export function AppHome() {
               <p>
                 {user ? tr("Your next confirmed request will appear here.") : tr("Sign in to see scheduled and past assistance.")}
               </p>
-              {!user && <Link to="/login">{tr("Sign in")}<LocateFixed size={13} />
+              {!user && <Link to="/signin">{tr("Sign in")}<LocateFixed size={13} />
                 </Link>}
             </div>
           </div>}

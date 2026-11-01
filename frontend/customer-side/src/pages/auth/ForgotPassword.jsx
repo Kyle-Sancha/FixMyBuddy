@@ -28,7 +28,7 @@ export function ForgotPassword() {
       {sent ? <>
           <AuthNotice>{tr("If an account exists for that email, you will receive reset instructions. Check your inbox and spam folder.")}</AuthNotice>
           <div className="auth-actions">
-            <Link className="auth-primary" to="/login">{tr("Back to sign in")}</Link>
+            <Link className="auth-primary" to="/signin">{tr("Back to sign in")}</Link>
           </div>
         </> : <form className="auth-form" onSubmit={submit}>
           <AuthField id="reset-email" name="email" label={tr("Email address")} type="email" autoComplete="email" required icon={Mail} />

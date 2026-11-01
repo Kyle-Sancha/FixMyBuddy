@@ -15,7 +15,7 @@ export function Quote() {
     <div className="pb-4">
       <div className="mb-4">
         <h1 className="m-0 text-xl font-bold">Build a clear quote</h1>
-        <p className="mb-0 mt-1 text-xs text-[#aebbd0]">
+        <p className="mb-0 mt-1 text-base text-[rgb(var(--fmb-muted))]">
           {jobId || 'FMB-1042'} · Quote v1 · Draft, not approved
         </p>
       </div>

@@ -110,7 +110,7 @@ export function SafetyProfile() {
         <AuthNotice>{tr("Choose someone you trust and ask for their permission before adding their contact details.")}</AuthNotice>
         {error && <AuthNotice error>{tr(error)}</AuthNotice>}
         <div className="auth-actions">
-          {user ? <AuthSubmit busy={busy} icon={Check}>{tr("Save profile & contact")}</AuthSubmit> : <Link className="auth-primary" to="/login">{tr("Sign in to save details")}</Link>}
+          {user ? <AuthSubmit busy={busy} icon={Check}>{tr("Save profile & contact")}</AuthSubmit> : <Link className="auth-primary" to="/signin">{tr("Sign in to save details")}</Link>}
           <Link to="/app" className="auth-secondary">{tr("Skip for now")}</Link>
         </div>
       </form>

@@ -63,20 +63,20 @@ export function Diagnosis() {
           type="button"
           onClick={() => navigate(-1)}
           aria-label="Go back"
-          className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#1c293d] text-[#ffda45]"
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[rgb(var(--fmb-panel))] text-[rgb(var(--fmb-accent))]"
         >
           <ArrowLeft size={20} />
         </button>
         <div>
           <h1 className="m-0 text-xl font-bold">Record your diagnosis</h1>
-          <p className="mb-0 mt-1 text-xs text-[#aebbd0]">
+          <p className="mb-0 mt-1 text-base text-[rgb(var(--fmb-muted))]">
             {jobId || 'FMB-1042'} · Battery · Toyota Vios
           </p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <label className="block text-xs font-semibold">
+        <label className="block text-base font-semibold">
           Findings
           <span className="relative mt-2 block">
             <textarea
@@ -86,11 +86,11 @@ export function Diagnosis() {
                 setError('');
               }}
               rows={4}
-              className="w-full resize-y rounded-xl border border-[#34435b] bg-[#1c293d] p-3 pr-10 text-xs leading-5 text-white outline-none focus:border-[#ffda45]"
+              className="w-full resize-y rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3 pr-10 text-base leading-5 text-[rgb(var(--fmb-text))] outline-none focus:border-[rgb(var(--fmb-accent))]"
             />
             <Pencil
               size={16}
-              className="pointer-events-none absolute right-3 top-3 text-[#aebbd0]"
+              className="pointer-events-none absolute right-3 top-3 text-[rgb(var(--fmb-muted))]"
               aria-hidden="true"
             />
           </span>
@@ -98,8 +98,8 @@ export function Diagnosis() {
 
         <section>
           <div className="mb-3 flex items-center justify-between">
-            <h2 className="m-0 text-sm font-semibold">Diagnostic photos</h2>
-            <span className="text-xs text-[#ffda45]">
+            <h2 className="m-0 text-base font-semibold">Diagnostic photos</h2>
+            <span className="text-base text-[rgb(var(--fmb-accent))]">
               {photos.length} attached
             </span>
           </div>
@@ -108,15 +108,15 @@ export function Diagnosis() {
             {photos.slice(0, 2).map((photo, index) => (
               <div
                 key={`${photo.name}-${index}`}
-                className="flex min-h-20 items-center justify-center rounded-xl border border-[#34435b] bg-[#1c293d] p-2 text-center text-[10px] text-[#aebbd0]"
+                className="flex min-h-20 items-center justify-center rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-2 text-center text-base text-[rgb(var(--fmb-muted))]"
               >
                 <span className="line-clamp-3">{photo.name}</span>
               </div>
             ))}
 
-            <label className="flex min-h-20 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-[#34435b] bg-[#1c293d] text-[#aebbd0] hover:border-[#ffda45] hover:text-[#ffda45]">
+            <label className="flex min-h-20 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border border-dashed border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] text-[rgb(var(--fmb-muted))] hover:border-[rgb(var(--fmb-accent))] hover:text-[rgb(var(--fmb-accent))]">
               <ImagePlus size={20} />
-              <span className="text-[10px]">Add photo</span>
+              <span className="text-base">Add photo</span>
               <input
                 type="file"
                 accept="image/*"
@@ -128,17 +128,17 @@ export function Diagnosis() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-[#34435b] bg-[#1c293d] p-3.5">
-          <h2 className="m-0 text-sm font-semibold">Service checklist</h2>
+        <section className="rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3.5">
+          <h2 className="m-0 text-base font-semibold">Service checklist</h2>
           <ul className="mb-0 mt-3 flex list-none flex-col gap-3 p-0">
             {initialChecklist.map((item) => (
               <li key={item}>
-                <label className="flex min-h-8 items-center gap-3 text-xs leading-5 text-[#c4cede]">
+                <label className="flex min-h-8 items-center gap-3 text-base leading-5 text-[rgb(var(--fmb-secondary))]">
                   <input
                     type="checkbox"
                     checked={checkedItems.includes(item)}
                     onChange={() => toggleItem(item)}
-                    className="h-4 w-4 accent-[#ffda45]"
+                    className="h-4 w-4 accent-[rgb(var(--fmb-accent))]"
                   />
                   <span>{item}</span>
                 </label>
@@ -147,10 +147,10 @@ export function Diagnosis() {
           </ul>
         </section>
 
-        <div className="flex items-start gap-2 rounded-lg bg-[#1c293d] px-3 py-3 text-xs leading-5 text-[#aebbd0]">
+        <div className="flex items-start gap-2 rounded-lg bg-[rgb(var(--fmb-panel))] px-3 py-3 text-base leading-5 text-[rgb(var(--fmb-muted))]">
           <FileText
             size={17}
-            className="mt-0.5 shrink-0 text-[#80dfc6]"
+            className="mt-0.5 shrink-0 text-[rgb(var(--fmb-success))]"
             aria-hidden="true"
           />
           <p className="m-0">
@@ -160,14 +160,14 @@ export function Diagnosis() {
         </div>
 
         {error && (
-          <p role="alert" className="m-0 text-xs text-[#ff9b8f]">
+          <p role="alert" className="m-0 text-base text-[rgb(var(--fmb-error))]">
             {error}
           </p>
         )}
 
         <button
           type="submit"
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#ffda45] px-4 text-sm font-bold text-[#111827]"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[rgb(var(--fmb-accent))] px-4 text-base font-bold text-[rgb(var(--fmb-ink))]"
         >
           <Check size={18} />
           Create repair quote

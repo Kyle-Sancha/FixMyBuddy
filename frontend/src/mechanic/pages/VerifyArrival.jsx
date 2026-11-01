@@ -53,32 +53,32 @@ export function VerifyArrival() {
           type="button"
           onClick={() => navigate(-1)}
           aria-label="Go back"
-          className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#1c293d] text-[#ffda45]"
+          className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[rgb(var(--fmb-panel))] text-[rgb(var(--fmb-accent))]"
         >
           <ArrowLeft size={20} />
         </button>
         <div>
           <h1 className="m-0 text-xl font-bold">Arrived. Verify first.</h1>
-          <p className="mb-0 mt-1 text-xs text-[#aebbd0]">
+          <p className="mb-0 mt-1 text-base text-[rgb(var(--fmb-muted))]">
             {jobId || 'FMB-1042'} · Mabolo Road · 9:43 AM
           </p>
         </div>
       </div>
 
       <section className="mb-4 flex items-center gap-3">
-        <span className="grid h-11 w-11 place-items-center rounded-full bg-[#24364d] font-bold text-[#ffda45]">
+        <span className="grid h-11 w-11 place-items-center rounded-full bg-[rgb(var(--fmb-selected))] font-bold text-[rgb(var(--fmb-accent))]">
           AR
         </span>
         <div>
-          <strong className="block text-sm">Alex Reyes</strong>
-          <span className="text-xs text-[#aebbd0]">
+          <strong className="block text-base">Alex Reyes</strong>
+          <span className="text-base text-[rgb(var(--fmb-muted))]">
             Toyota Vios · Silver · ABC 1234
           </span>
         </div>
       </section>
 
       <form onSubmit={handleSubmit}>
-        <label className="block text-sm font-semibold">
+        <label className="block text-base font-semibold">
           Ask Alex for the arrival PIN
           <input
             inputMode="numeric"
@@ -89,25 +89,25 @@ export function VerifyArrival() {
               setPin(event.target.value.replace(/\D/g, '').slice(0, 4));
               setError('');
             }}
-            className="mt-3 min-h-14 w-full rounded-xl border border-[#34435b] bg-[#1c293d] px-4 text-center text-2xl font-bold tracking-[0.7em] text-white outline-none focus:border-[#ffda45]"
+            className="mt-3 min-h-14 w-full rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] px-4 text-center text-2xl font-bold tracking-[0.7em] text-[rgb(var(--fmb-text))] outline-none focus:border-[rgb(var(--fmb-accent))]"
             aria-label="4-digit arrival PIN"
           />
         </label>
 
-        <section className="mt-4 rounded-xl border border-[#34435b] bg-[#1c293d] p-3.5">
-          <h2 className="m-0 text-sm font-semibold">Before you begin</h2>
+        <section className="mt-4 rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3.5">
+          <h2 className="m-0 text-base font-semibold">Before you begin</h2>
           <ul className="mb-0 mt-3 flex list-none flex-col gap-3 p-0">
             {checklistItems.map((item) => {
               const checked = checkedItems.includes(item);
 
               return (
                 <li key={item}>
-                  <label className="flex min-h-8 items-center gap-3 text-xs leading-5 text-[#c4cede]">
+                  <label className="flex min-h-8 items-center gap-3 text-base leading-5 text-[rgb(var(--fmb-secondary))]">
                     <input
                       type="checkbox"
                       checked={checked}
                       onChange={() => toggleItem(item)}
-                      className="h-4 w-4 accent-[#ffda45]"
+                      className="h-4 w-4 accent-[rgb(var(--fmb-accent))]"
                     />
                     <span>{item}</span>
                   </label>
@@ -117,10 +117,10 @@ export function VerifyArrival() {
           </ul>
         </section>
 
-        <div className="mt-3 flex items-start gap-2 rounded-lg bg-[#1c293d] px-3 py-3 text-xs leading-5 text-[#aebbd0]">
+        <div className="mt-3 flex items-start gap-2 rounded-lg bg-[rgb(var(--fmb-panel))] px-3 py-3 text-base leading-5 text-[rgb(var(--fmb-muted))]">
           <ShieldCheck
             size={17}
-            className="mt-0.5 shrink-0 text-[#80dfc6]"
+            className="mt-0.5 shrink-0 text-[rgb(var(--fmb-success))]"
             aria-hidden="true"
           />
           <p className="m-0">
@@ -131,7 +131,7 @@ export function VerifyArrival() {
 
         <button
           type="button"
-          className="mt-3 inline-flex min-h-10 items-center gap-2 text-xs font-semibold text-[#ffda45]"
+          className="mt-3 inline-flex min-h-10 items-center gap-2 text-base font-semibold text-[rgb(var(--fmb-accent))]"
           onClick={() => setError('Contact support will be connected later.')}
         >
           <Headphones size={16} />
@@ -139,14 +139,14 @@ export function VerifyArrival() {
         </button>
 
         {error && (
-          <p role="alert" className="mb-0 mt-2 text-xs text-[#ff9b8f]">
+          <p role="alert" className="mb-0 mt-2 text-base text-[rgb(var(--fmb-error))]">
             {error}
           </p>
         )}
 
         <button
           type="submit"
-          className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#ffda45] px-4 text-sm font-bold text-[#111827]"
+          className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[rgb(var(--fmb-accent))] px-4 text-base font-bold text-[rgb(var(--fmb-ink))]"
         >
           <Check size={18} />
           Verify PIN &amp; start diagnosis

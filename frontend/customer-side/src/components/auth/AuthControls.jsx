@@ -81,7 +81,7 @@ export function AuthNotice({
 }
 export function AccountLink({
   children = 'Already have an account?',
-  to = '/login',
+  to = '/signin',
   label = 'Sign in'
 }) {
   return <p className="auth-account-link">

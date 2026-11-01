@@ -41,7 +41,7 @@ export function Account() {
   }
   return <>
     <CustomerHeading title={t('Account & settings','Account at mga setting')}>{t('Make FixMyBuddy work for you.','Iangkop ang FixMyBuddy sa iyong pangangailangan.')}</CustomerHeading>
-    {!user && <Link to="/login" className="auth-primary account-sign-in"><LogIn size={18} />{t('Sign in','Mag-sign in')}</Link>}
+    {!user && <Link to="/signin" className="auth-primary account-sign-in"><LogIn size={18} />{t('Sign in','Mag-sign in')}</Link>}
     {groups.map((rows,index) => <ul className="account-settings-group" key={index}>{rows.map(([to,Icon,title,subtitle]) => <li key={to}><Link to={to}><Icon size={22} /><span><strong>{title}</strong><small>{subtitle}</small></span><ChevronRight size={18} /></Link></li>)}</ul>)}
     <Link className="account-help-link" to="/help"><Headphones size={21} /><span>{t('Help & support','Tulong at suporta')}</span><strong>{t('Open','Buksan')}</strong></Link>
     {user && <button className="auth-secondary" type="button" onClick={() => { setError(''); dialog.current.showModal(); }}><LogOut size={21} />{t('Sign out','Mag-sign out')}</button>}

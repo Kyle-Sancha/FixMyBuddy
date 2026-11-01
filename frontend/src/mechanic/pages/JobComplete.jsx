@@ -27,62 +27,62 @@ export function JobComplete() {
   return (
     <div className="pb-4">
       <div className="mb-4 flex items-center gap-3">
-        <span className="grid h-10 w-10 place-items-center rounded-full bg-[#183c3a] text-[#80dfc6]">
+        <span className="grid h-10 w-10 place-items-center rounded-full bg-[rgb(var(--fmb-success)/0.15)] text-[rgb(var(--fmb-success))]">
           <CircleCheck size={21} />
         </span>
         <div>
           <h1 className="m-0 text-xl font-bold">Job done. Nicely done.</h1>
-          <p className="mb-0 mt-1 text-xs text-[#aebbd0]">
+          <p className="mb-0 mt-1 text-base text-[rgb(var(--fmb-muted))]">
             {jobId || 'FMB-1042'} · 19 Oct 2026 · 10:38 AM
           </p>
         </div>
       </div>
 
-      <div className="mb-4 flex items-start gap-2 rounded-xl bg-[#1c293d] p-3 text-xs leading-5 text-[#aebbd0]">
-        <CircleCheck size={17} className="mt-0.5 shrink-0 text-[#80dfc6]" />
+      <div className="mb-4 flex items-start gap-2 rounded-xl bg-[rgb(var(--fmb-panel))] p-3 text-base leading-5 text-[rgb(var(--fmb-muted))]">
+        <CircleCheck size={17} className="mt-0.5 shrink-0 text-[rgb(var(--fmb-success))]" />
         <p className="m-0">
           Alex confirmed completion at 10:35 AM. Payment received: ₱4,600 via
           GCash.
         </p>
       </div>
 
-      <section className="rounded-xl border border-[#34435b] bg-[#1c293d] p-3.5">
-        <h2 className="m-0 text-sm font-semibold">Approved breakdown</h2>
+      <section className="rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3.5">
+        <h2 className="m-0 text-base font-semibold">Approved breakdown</h2>
         <dl className="mb-0 mt-4 flex flex-col gap-3">
           {breakdown.map(([label, amount]) => (
-            <div key={label} className="flex justify-between gap-3 text-xs">
-              <dt className="text-[#aebbd0]">{label}</dt>
+            <div key={label} className="flex justify-between gap-3 text-base">
+              <dt className="text-[rgb(var(--fmb-muted))]">{label}</dt>
               <dd className="m-0 shrink-0 font-semibold">{formatPeso(amount)}</dd>
             </div>
           ))}
-          <div className="flex justify-between gap-3 border-t border-[#34435b] pt-3 text-sm">
+          <div className="flex justify-between gap-3 border-t border-[rgb(var(--fmb-border))] pt-3 text-base">
             <dt className="font-semibold">Total</dt>
-            <dd className="m-0 font-bold text-[#ffda45]">{formatPeso(total)}</dd>
+            <dd className="m-0 font-bold text-[rgb(var(--fmb-accent))]">{formatPeso(total)}</dd>
           </div>
         </dl>
       </section>
 
-      <section className="mt-4 rounded-xl border border-[#34435b] bg-[#1c293d] p-3.5">
-        <h2 className="m-0 text-sm font-semibold">Work summary</h2>
-        <p className="mb-0 mt-2 text-xs leading-5 text-white">
+      <section className="mt-4 rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3.5">
+        <h2 className="m-0 text-base font-semibold">Work summary</h2>
+        <p className="mb-0 mt-2 text-base leading-5 text-[rgb(var(--fmb-text))]">
           Replaced 12V battery and approved terminal. Starting test passed;
           charging at 14.2V.
         </p>
-        <p className="mb-0 mt-2 text-xs leading-5 text-[#aebbd0]">
+        <p className="mb-0 mt-2 text-base leading-5 text-[rgb(var(--fmb-muted))]">
           Installation warranty: 30 days. Battery warranty ends 18 Oct 2027.
         </p>
       </section>
 
-      <div className="mt-4 flex items-center justify-between rounded-lg bg-[#1c293d] px-3 py-3 text-xs">
-        <span className="inline-flex items-center gap-2 text-[#aebbd0]">
-          <FileText size={16} className="text-[#ffda45]" />
+      <div className="mt-4 flex items-center justify-between rounded-lg bg-[rgb(var(--fmb-panel))] px-3 py-3 text-base">
+        <span className="inline-flex items-center gap-2 text-[rgb(var(--fmb-muted))]">
+          <FileText size={16} className="text-[rgb(var(--fmb-accent))]" />
           Receipt number
         </span>
-        <strong className="text-[#ffda45]">RC-1042</strong>
+        <strong className="text-[rgb(var(--fmb-accent))]">RC-1042</strong>
       </div>
 
       {receiptReady && (
-        <p role="status" className="mb-0 mt-3 text-xs text-[#80dfc6]">
+        <p role="status" className="mb-0 mt-3 text-base text-[rgb(var(--fmb-success))]">
           Receipt preview is ready.
         </p>
       )}
@@ -90,7 +90,7 @@ export function JobComplete() {
       <button
         type="button"
         onClick={() => setReceiptReady(true)}
-        className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#ffda45] px-4 text-sm font-bold text-[#111827]"
+        className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[rgb(var(--fmb-accent))] px-4 text-base font-bold text-[rgb(var(--fmb-ink))]"
       >
         <ReceiptText size={18} />
         Issue paid receipt
@@ -99,7 +99,7 @@ export function JobComplete() {
       <button
         type="button"
         onClick={() => navigate('/mechanic/earnings')}
-        className="mt-2 min-h-11 w-full rounded-xl bg-[#1c293d] text-sm font-semibold text-white"
+        className="mt-2 min-h-11 w-full rounded-xl bg-[rgb(var(--fmb-panel))] text-base font-semibold text-[rgb(var(--fmb-text))]"
       >
         View earnings
       </button>

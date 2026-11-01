@@ -49,7 +49,8 @@ export function AppRoutes() {
       <Route path="/mechanic/*" element={<MechanicRoutes />} />
 
       <Route element={<AuthLayout />}>
-        <Route path="login" element={<SignIn />} />
+        <Route path="signin" element={<SignIn />} />
+        <Route path="login" element={<Navigate to="/signin" replace />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="register" element={<Navigate to="/signup" replace />} />
         <Route path="verify" element={<VerifyPhone />} />

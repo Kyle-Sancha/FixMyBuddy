@@ -31,7 +31,7 @@ async function request(path, body, method = 'POST') {
         429: 'Too many attempts. Please wait before trying again.',
       };
       throw new Error(
-        messages[response.status] ||
+        data?.error || messages[response.status] ||
           'We could not complete your request. Please try again.',
       );
     }
@@ -78,8 +78,8 @@ export const authService = {
   async signup(details) {
     return challengeFrom(await request('/auth/signup', details));
   },
-  async login(email, password) {
-    return userFrom(await request('/auth/login', { email, password }));
+  async login(email, password, role) {
+    return userFrom(await request('/auth/login', { email, password, ...(role ? { role } : {}) }));
   },
   async verify(challengeId, code) {
     const user = userFrom(

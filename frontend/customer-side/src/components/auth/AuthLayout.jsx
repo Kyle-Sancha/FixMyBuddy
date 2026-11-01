@@ -6,6 +6,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 const steps = ['/signup', '/verify', '/permissions', '/profile'];
 const titles = {
   '/start': 'Welcome',
+  '/signin': 'Sign in',
   '/login': 'Sign in',
   '/signup': 'Create account',
   '/verify': 'Verify number',
@@ -20,12 +21,13 @@ export function AuthLayout() {
   const step = steps.indexOf(pathname);
   const backTo = {
     '/start': '/',
+    '/signin': '/',
     '/login': '/',
     '/signup': '/',
-    '/verify': '/login',
+    '/verify': '/signin',
     '/permissions': '/app',
     '/profile': '/permissions',
-    '/forgot-password': '/login'
+    '/forgot-password': '/signin'
   }[pathname] || '/';
   useEffect(() => {
     document.title = `${titles[pathname] || 'Account'} | FixMyBuddy`;

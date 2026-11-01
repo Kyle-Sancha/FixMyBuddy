@@ -69,13 +69,13 @@ export function QuoteEditor({
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <section className="rounded-xl border border-[#34435b] bg-[#1c293d] p-3">
+      <section className="rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3">
         <div className="mb-2 flex items-center justify-between gap-3">
-          <h2 className="m-0 text-sm font-semibold">Parts &amp; labor</h2>
+          <h2 className="m-0 text-base font-semibold">Parts &amp; labor</h2>
           <button
             type="button"
             onClick={addItem}
-            className="inline-flex min-h-7 items-center gap-1 text-[10px] font-semibold text-[#ffda45]"
+            className="inline-flex min-h-7 items-center gap-1 text-base font-semibold text-[rgb(var(--fmb-accent))]"
           >
             <Plus size={15} aria-hidden="true" />
             Add line
@@ -89,13 +89,13 @@ export function QuoteEditor({
             return (
               <div
                 key={item.id}
-                className="grid grid-cols-[16px_minmax(0,1fr)_auto] items-center gap-2 text-[10px]"
+                className="grid grid-cols-[16px_minmax(0,1fr)_auto] items-center gap-2 text-base"
               >
                 <button
                   type="button"
                   onClick={() => setEditingId(isEditing ? null : item.id)}
                   aria-label={isEditing ? 'Finish editing line' : `Edit ${item.label}`}
-                  className="grid h-7 w-5 place-items-center text-[#aebbd0]"
+                  className="grid h-7 w-5 place-items-center text-[rgb(var(--fmb-muted))]"
                 >
                   {isEditing ? <Check size={14} /> : <Pencil size={14} />}
                 </button>
@@ -108,10 +108,10 @@ export function QuoteEditor({
                       updateItem(item.id, 'label', event.target.value)
                     }
                     placeholder="Describe work or part"
-                    className="min-h-7 min-w-0 rounded border border-[#34435b] bg-[#10192d] px-2 text-[10px] text-white outline-none focus:border-[#ffda45]"
+                    className="min-h-7 min-w-0 rounded border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-bg))] px-2 text-base text-[rgb(var(--fmb-text))] outline-none focus:border-[rgb(var(--fmb-accent))]"
                   />
                 ) : (
-                  <span className="min-w-0 text-[#aebbd0]">{item.label}</span>
+                  <span className="min-w-0 text-[rgb(var(--fmb-muted))]">{item.label}</span>
                 )}
 
                 <div className="flex items-center gap-1.5">
@@ -125,7 +125,7 @@ export function QuoteEditor({
                       onChange={(event) =>
                         updateItem(item.id, 'amount', event.target.value)
                       }
-                      className="w-[72px] rounded border border-[#34435b] bg-[#10192d] px-1.5 py-1 text-right text-[10px] text-white outline-none focus:border-[#ffda45]"
+                      className="w-[72px] rounded border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-bg))] px-1.5 py-1 text-right text-base text-[rgb(var(--fmb-text))] outline-none focus:border-[rgb(var(--fmb-accent))]"
                     />
                   ) : (
                     <strong className="whitespace-nowrap">{formatPeso(item.amount)}</strong>
@@ -135,7 +135,7 @@ export function QuoteEditor({
                       type="button"
                       onClick={() => removeItem(item.id)}
                       aria-label={`Remove ${item.label || 'line item'}`}
-                      className="grid h-7 w-6 place-items-center text-[#aebbd0]"
+                      className="grid h-7 w-6 place-items-center text-[rgb(var(--fmb-muted))]"
                     >
                       <Trash2 size={13} />
                     </button>
@@ -146,55 +146,55 @@ export function QuoteEditor({
           })}
         </div>
 
-        <div className="mt-2 space-y-1.5 border-t border-[#34435b] pt-2 text-[10px]">
-          <div className="flex justify-between gap-3 text-[#aebbd0]">
+        <div className="mt-2 space-y-1.5 border-t border-[rgb(var(--fmb-border))] pt-2 text-base">
+          <div className="flex justify-between gap-3 text-[rgb(var(--fmb-muted))]">
             <span>Customer total</span>
-            <strong className="text-[#ffda45]">{formatPeso(total)}</strong>
+            <strong className="text-[rgb(var(--fmb-accent))]">{formatPeso(total)}</strong>
           </div>
-          <div className="flex justify-between gap-3 text-[#aebbd0]">
+          <div className="flex justify-between gap-3 text-[rgb(var(--fmb-muted))]">
             <span>Est. net after 10% fee</span>
-            <strong className="text-white">{formatPeso(estimatedNet)}</strong>
+            <strong className="text-[rgb(var(--fmb-text))]">{formatPeso(estimatedNet)}</strong>
           </div>
         </div>
       </section>
 
-      <label className="flex min-h-10 items-center gap-2 rounded-lg border border-[#34435b] bg-[#1c293d] px-2.5 text-[10px] text-[#aebbd0]">
-        <Clock3 size={16} className="shrink-0 text-[#ffda45]" aria-hidden="true" />
+      <label className="flex min-h-10 items-center gap-2 rounded-lg border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] px-2.5 text-base text-[rgb(var(--fmb-muted))]">
+        <Clock3 size={16} className="shrink-0 text-[rgb(var(--fmb-accent))]" aria-hidden="true" />
         <span className="flex-1">Repair time estimate</span>
         <input
           value={timeEstimate}
           onChange={(event) => setTimeEstimate(event.target.value)}
           placeholder="30–40 minutes"
-          className="w-28 bg-transparent text-right text-[10px] text-white outline-none placeholder:text-[#7f8da3]"
+          className="w-28 bg-transparent text-right text-base text-[rgb(var(--fmb-text))] outline-none placeholder:text-[rgb(var(--fmb-muted2))]"
         />
       </label>
 
-      <label className="block text-[10px] font-medium text-[#c4cede]">
+      <label className="block text-base font-medium text-[rgb(var(--fmb-secondary))]">
         Warranty terms
         <span className="relative mt-1 block">
           <textarea
             value={warranty}
             onChange={(event) => setWarranty(event.target.value)}
             rows={2}
-            className="w-full resize-none rounded-lg border border-[#34435b] bg-[#1c293d] p-2.5 pr-8 text-[10px] leading-4 text-white outline-none focus:border-[#ffda45]"
+            className="w-full resize-none rounded-lg border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-2.5 pr-8 text-base leading-4 text-[rgb(var(--fmb-text))] outline-none focus:border-[rgb(var(--fmb-accent))]"
           />
-          <Pencil size={13} className="pointer-events-none absolute right-2.5 top-2.5 text-[#aebbd0]" />
+          <Pencil size={13} className="pointer-events-none absolute right-2.5 top-2.5 text-[rgb(var(--fmb-muted))]" />
         </span>
       </label>
 
-      <div className="rounded-lg bg-[#3b3420] px-2.5 py-2 text-[10px] leading-4 text-[#d7c98d]">
+      <div className="rounded-lg bg-[rgb(var(--fmb-accent)/0.12)] px-2.5 py-2 text-base leading-4 text-[rgb(var(--fmb-secondary))]">
         <p className="m-0 inline-flex items-center gap-1.5 font-medium">
-          <Clock3 size={13} className="text-[#ffda45]" />
+          <Clock3 size={13} className="text-[rgb(var(--fmb-accent))]" />
           Approval status: {approvalStatus}. The customer sees itemized costs and can approve or decline.
         </p>
       </div>
-      <p className="m-0 text-[10px] leading-4 text-[#aebbd0]">
+      <p className="m-0 text-base leading-4 text-[rgb(var(--fmb-muted))]">
         Work stays blocked until Alex approves. If declined, only the ₱450 diagnostic visit is due.
       </p>
 
       <button
         type="submit"
-        className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-[#ffda45] px-4 text-[11px] font-bold text-[#111827] hover:bg-[#ffe16a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffda45]"
+        className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-[rgb(var(--fmb-accent))] px-4 text-base font-bold text-[rgb(var(--fmb-ink))] hover:bg-[rgb(var(--fmb-brand-hover))] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--fmb-accent))]"
       >
         <Send size={17} aria-hidden="true" />
         {submitLabel}

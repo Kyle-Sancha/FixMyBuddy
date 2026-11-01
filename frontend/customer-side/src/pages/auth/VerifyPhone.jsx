@@ -32,9 +32,10 @@ export function VerifyPhone() {
     setBusy(true);
     setError('');
     try {
-      acceptUser(await authService.verify(challenge.id, code));
+      const verifiedUser = await authService.verify(challenge.id, code);
+      acceptUser(verifiedUser);
       setCode('');
-      navigate(challenge.flow === 'signup' ? '/permissions' : '/app', {
+      navigate(challenge.flow === 'signup' ? '/permissions' : (challenge.flow === 'mechanic' || verifiedUser.role === 'mechanic') ? '/mechanic/availability' : '/app', {
         replace: true
       });
     } catch (failure) {
@@ -71,7 +72,7 @@ export function VerifyPhone() {
       {!challenge ? <>
           <AuthNotice>{tr("Request a code from the sign-in screen first. If you refreshed this page, start again to receive a new code.")}</AuthNotice>
           <div className="auth-actions">
-            <Link to="/login" className="auth-primary">{tr("Continue with phone")}</Link>
+            <Link to="/signin" className="auth-primary">{tr("Continue with phone")}</Link>
           </div>
         </> : <form className="auth-form" onSubmit={submit}>
           <label className="auth-otp-label" htmlFor="verification-code">{tr("Verification code")}</label>
@@ -93,11 +94,12 @@ export function VerifyPhone() {
             </button>
           </div>
           {expired && <p className="auth-field-error" role="alert">{tr("This code has expired. Request a new code.")}</p>}
+          {challenge?.devCode && <AuthNotice>Development OTP code: <strong>{challenge.devCode}</strong> (or <strong>123456</strong>)</AuthNotice>}
           <AuthNotice>{tr("Never share your code. FixMyBuddy will not ask you for it by phone.")}</AuthNotice>
           {error && <AuthNotice error>{tr(error)}</AuthNotice>}
           <div className="auth-actions">
             <AuthSubmit busy={busy} disabled={code.length !== 6 || Boolean(expired) || resending} icon={ShieldCheck}>{tr("Verify & continue")}</AuthSubmit>
-            <Link to="/login" className="auth-secondary" onClick={() => setChallenge(null)}>{tr("Change mobile number")}</Link>
+            <Link to="/signin" className="auth-secondary" onClick={() => setChallenge(null)}>{tr("Change mobile number")}</Link>
           </div>
         </form>}
     </div>;

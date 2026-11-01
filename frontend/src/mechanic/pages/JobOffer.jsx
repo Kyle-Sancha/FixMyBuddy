@@ -37,48 +37,48 @@ export function JobOffer() {
     <div className="pb-4">
       <div className="mb-4">
         <h1 className="m-0 text-xl font-bold">New job offer</h1>
-        <p className="mb-0 mt-1 text-xs text-[#aebbd0]">
+        <p className="mb-0 mt-1 text-base text-[rgb(var(--fmb-muted))]">
           {jobId || job.id} · Battery · Request expires in 00:42
         </p>
       </div>
 
       <section className="mb-4 flex items-center gap-3">
-        <span className="grid h-11 w-11 place-items-center rounded-full bg-[#24364d] font-bold text-[#ffda45]">
+        <span className="grid h-11 w-11 place-items-center rounded-full bg-[rgb(var(--fmb-selected))] font-bold text-[rgb(var(--fmb-accent))]">
           AR
         </span>
         <div>
-          <strong className="block text-sm">{job.customer}</strong>
-          <span className="text-xs text-[#aebbd0]">
+          <strong className="block text-base">{job.customer}</strong>
+          <span className="text-base text-[rgb(var(--fmb-muted))]">
             Customer · Verified mobile
           </span>
         </div>
       </section>
 
-      <section className="mb-3 flex min-h-[56px] items-center gap-3 rounded-xl border border-[#34435b] bg-[#1c293d] px-3.5">
-        <CarFront size={21} className="shrink-0 text-[#ffda45]" />
+      <section className="mb-3 flex min-h-[56px] items-center gap-3 rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] px-3.5">
+        <CarFront size={21} className="shrink-0 text-[rgb(var(--fmb-accent))]" />
         <div className="min-w-0 flex-1">
-          <strong className="block text-sm">{job.vehicle}</strong>
-          <span className="mt-1 block text-xs text-[#aebbd0]">Silver · ABC 1234</span>
+          <strong className="block text-base">{job.vehicle}</strong>
+          <span className="mt-1 block text-base text-[rgb(var(--fmb-muted))]">Silver · ABC 1234</span>
         </div>
-        <ChevronDown size={17} className="text-[#aebbd0]" />
+        <ChevronDown size={17} className="text-[rgb(var(--fmb-muted))]" />
       </section>
 
-      <section className="rounded-xl border border-[#34435b] bg-[#1c293d] p-3">
+      <section className="rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3">
         <div className="flex items-center gap-3">
-          <div className="relative grid h-[72px] w-20 shrink-0 place-items-center overflow-hidden rounded-lg bg-gradient-to-br from-[#68746d] via-[#39443f] to-[#182436] text-[#ffda45]">
+          <div className="relative grid h-[72px] w-20 shrink-0 place-items-center overflow-hidden rounded-lg bg-gradient-to-br from-[#68746d] via-[#39443f] to-[#182436] text-[rgb(var(--fmb-accent))]">
             <span className="absolute inset-x-2 top-4 h-1 rounded-full bg-[#9da69b]/60" />
-            <span className="absolute inset-x-3 bottom-4 h-1 rounded-full bg-[#111827]/70" />
+            <span className="absolute inset-x-3 bottom-4 h-1 rounded-full bg-[rgb(var(--fmb-ink)/0.7)]" />
             <Wrench size={24} />
           </div>
           <div className="min-w-0 flex-1">
-            <strong className="block text-sm">{job.issue}</strong>
-            <span className="mt-1 block text-xs leading-5 text-[#aebbd0]">
+            <strong className="block text-base">{job.issue}</strong>
+            <span className="mt-1 block text-base leading-5 text-[rgb(var(--fmb-muted))]">
               Dashboard lights are dim. Parked on a safe shoulder.
             </span>
           </div>
         </div>
-        <div className="mt-3 flex items-center justify-between gap-2 text-xs">
-          <span className="inline-flex min-w-0 items-center gap-1.5 text-[#aebbd0]">
+        <div className="mt-3 flex items-center justify-between gap-2 text-base">
+          <span className="inline-flex min-w-0 items-center gap-1.5 text-[rgb(var(--fmb-muted))]">
             <MapPin size={15} className="shrink-0" />
             <span className="truncate">{job.location}</span>
           </span>
@@ -86,28 +86,28 @@ export function JobOffer() {
         </div>
       </section>
 
-      <section className="mt-3 rounded-xl border border-[#34435b] bg-[#1c293d] p-3.5">
-        <div className="mb-3 flex items-center justify-between gap-3 text-xs">
-          <span className="inline-flex items-center gap-2 text-[#aebbd0]">
+      <section className="mt-3 rounded-xl border border-[rgb(var(--fmb-border))] bg-[rgb(var(--fmb-panel))] p-3.5">
+        <div className="mb-3 flex items-center justify-between gap-3 text-base">
+          <span className="inline-flex items-center gap-2 text-[rgb(var(--fmb-muted))]">
             <MapPin size={15} /> Travel ETA
           </span>
           <strong>12 min</strong>
         </div>
-        <div className="flex items-center justify-between gap-3 py-1.5 text-xs">
-          <span className="text-[#aebbd0]">Customer visit estimate</span>
+        <div className="flex items-center justify-between gap-3 py-1.5 text-base">
+          <span className="text-[rgb(var(--fmb-muted))]">Customer visit estimate</span>
           <strong>₱450</strong>
         </div>
-        <div className="flex items-center justify-between gap-3 py-1.5 text-xs">
-          <span className="text-[#aebbd0]">Platform fee · 10%</span>
+        <div className="flex items-center justify-between gap-3 py-1.5 text-base">
+          <span className="text-[rgb(var(--fmb-muted))]">Platform fee · 10%</span>
           <strong>₱45</strong>
         </div>
-        <div className="mt-1 flex items-center justify-between gap-3 border-t border-[#34435b] pt-2 text-xs">
-          <span className="text-[#aebbd0]">Estimated visit earnings</span>
-          <strong className="text-[#ffda45]">{formatPeso(job.estimate)}</strong>
+        <div className="mt-1 flex items-center justify-between gap-3 border-t border-[rgb(var(--fmb-border))] pt-2 text-base">
+          <span className="text-[rgb(var(--fmb-muted))]">Estimated visit earnings</span>
+          <strong className="text-[rgb(var(--fmb-accent))]">{formatPeso(job.estimate)}</strong>
         </div>
       </section>
 
-      <p className="mb-0 mt-3 text-[10px] leading-4 text-[#aebbd0]">
+      <p className="mb-0 mt-3 text-base leading-4 text-[rgb(var(--fmb-muted))]">
         Repairs require a separate customer-approved quote.
       </p>
 
@@ -115,7 +115,7 @@ export function JobOffer() {
         <button
           type="button"
           onClick={acceptJob}
-          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#ffda45] px-4 text-sm font-bold text-[#111827]"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[rgb(var(--fmb-accent))] px-4 text-base font-bold text-[rgb(var(--fmb-ink))]"
         >
           <ArrowRight size={17} />
           Accept job
@@ -123,7 +123,7 @@ export function JobOffer() {
         <button
           type="button"
           onClick={declineOffer}
-          className="min-h-10 rounded-xl bg-[#1c293d] px-4 text-sm font-semibold text-white"
+          className="min-h-10 rounded-xl bg-[rgb(var(--fmb-panel))] px-4 text-base font-semibold text-[rgb(var(--fmb-text))]"
         >
           Decline offer
         </button>
