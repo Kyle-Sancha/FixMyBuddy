@@ -1,0 +1,13 @@
+FixMyBuddy promotional image prompts
+Generated with the built-in image_gen tool. These are photorealistic promotional scenes, not photographs of actual providers.
+
+Saved project assets:
+frontend/customer-side/public/images/roadside-photo-v2.webp
+frontend/customer-side/public/images/towing-photo-v2.webp
+
+Hero prompt:
+Use case: photorealistic-natural. Asset type: full-width responsive website hero photo for FixMyBuddy roadside assistance. Create a natural editorial photograph, wide landscape 16:9. A Filipino motorcycle mechanic in a navy work shirt with a small yellow detail crouches beside a parked everyday commuter motorcycle, inspecting its rear wheel, while the adult rider stands nearby listening. Safely parked in a broad roadside lay-by, completely separated from traffic. Authentic tropical Philippine urban roadside, modest greenery and low buildings, subtle yellow service pickup in the distant background. Camera: real documentary lifestyle photography, 35mm lens, natural late-afternoon light, realistic skin pores, fabric wear, believable mechanical parts and hands, restrained grading. Composition: people and motorcycle grouped in the RIGHT half, with lower-contrast empty road and shaded greenery across the LEFT half for large white website text. Keep people visible in a portrait crop centered around 75% horizontal position; subjects around middle-lower frame, generous headroom. No text, no logos, no branding, no watermarks. Avoid illustration, painting, cartoon, 3D render, artificial plastic skin, dramatic fantasy scenery, fake interface overlays.
+
+Towing prompt:
+Use case: photorealistic-natural. Asset type: landscape photograph for FixMyBuddy's towing-service website section. Natural editorial photo of a compact unbranded silver car safely secured on the bed of a stationary yellow flatbed tow truck, an adult Filipino towing operator in navy work clothes with modest yellow safety accents standing beside the truck checking a strap. Parked in a broad paved service area beside a tropical Philippine road, low greenery and ordinary buildings in soft focus. Credible real tow equipment, natural proportions and practical safety details. Afternoon natural daylight, genuine fabric and metal textures, realistic human skin, authentic candid photography, 50mm lens. Composition: medium-wide side/rear three-quarter view, show the car, flatbed and person clearly, usable in a 4:3 crop. No text, no logos, no watermark, no company names, no readable license plates. No illustration, painterly texture, CGI, plastic faces or fantasy lighting.
+

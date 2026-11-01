@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import { validTowingCondition, validTowingQuote, validPosition, validHandoverInput, handoverAvailable } from './towingValidation.js';
+assert.equal(validTowingCondition({ starts:'no', rolls:'yes', collision:'unknown' }), true);
+assert.equal(validTowingCondition({ starts:'no', rolls:true, collision:'no' }), false);
+assert.equal(validTowingCondition(null), false);
+const quote = { routeId:'route', version:1, distanceKm:2, pickupAddress:'Pickup', destinationAddress:'Destination', equipment:'Provider equipment' };
+assert.equal(validTowingQuote(quote), true);
+assert.equal(validTowingQuote({ ...quote, distanceKm:-1 }), false);
+assert.equal(validTowingQuote({ ...quote, equipment:'' }), false);
+assert.equal(validPosition({ latitude:0, longitude:0 }), true);
+assert.equal(validPosition({ latitude:91, longitude:0 }), false);
+assert.equal(validPosition({ latitude:null, longitude:0 }), false);
+const receipt = { condition:'damage_reported', vehicleReceived:true, keysReceived:true, damageNotes:'Damage description', pin:'test-only' };
+assert.equal(validHandoverInput(receipt, true), true);
+assert.equal(validHandoverInput({ ...receipt, pin:'' }, true), false);
+assert.equal(validHandoverInput({ ...receipt, damageNotes:'' }, false), false);
+assert.equal(validHandoverInput({ ...receipt, keysReceived:false }, false), false);
+const booking = { serviceType:'towing', towing:{ status:'at_destination', canConfirmHandover:true } };
+assert.equal(handoverAvailable(booking), true);
+assert.equal(handoverAvailable({ ...booking, towing:{ ...booking.towing, status:'en_route' } }), false);
+assert.equal(handoverAvailable({ ...booking, towing:{ ...booking.towing, handover:{ status:'confirmed' } } }), false);
+console.log('Towing condition, route, position and handover validation checks passed.');
+

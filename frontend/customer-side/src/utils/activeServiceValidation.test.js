@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import { validArrivalPin, validServiceMessage, validServiceStep, validServiceUpdate } from './activeServiceValidation.js';
+const now = Date.now();
+const pin = { bookingId: 'qa-booking', pin: 'TEST1234', expiresAt: new Date(now + 60000).toISOString() };
+assert.equal(validArrivalPin(pin, 'qa-booking', now), true);
+assert.equal(validArrivalPin(pin, 'another-booking', now), false);
+assert.equal(validArrivalPin({ ...pin, expiresAt: new Date(now - 1).toISOString() }, 'qa-booking', now), false);
+assert.equal(validArrivalPin({ ...pin, pin: '<script>' }, 'qa-booking', now), false);
+assert.equal(validServiceMessage({ id: 'qa', sender: 'provider', body: 'QA message' }), true);
+assert.equal(validServiceMessage({ id: 'qa', sender: 'support', body: 'QA message' }), false);
+assert.equal(validServiceMessage({ id: 'qa', sender: 'customer', body: ' ' }), false);
+assert.equal(validServiceStep({ id: 'qa', label: 'QA stage', status: 'completed' }), true);
+assert.equal(validServiceStep({ id: 'qa', label: 'QA stage', status: 'assumed_complete' }), false);
+assert.equal(validServiceUpdate({ id: 'qa', title: 'QA update' }), true);

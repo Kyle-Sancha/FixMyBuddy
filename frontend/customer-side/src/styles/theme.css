@@ -1,0 +1,107 @@
+/* Shared UI colors: map tiles, photos and payment QR images keep their original colors. */
+  :root {
+    color-scheme: dark;
+    --fmb-bg: 16 24 39;
+    --fmb-deep: 20 32 52;
+    --fmb-deep2: 22 33 52;
+    --fmb-dialog: 23 35 56;
+    --fmb-notice: 23 36 54;
+    --fmb-raised: 33 48 70;
+    --fmb-raised2: 35 50 73;
+    --fmb-panel: 28 41 61;
+    --fmb-icon: 30 43 62;
+    --fmb-selected: 36 54 77;
+    --fmb-raised3: 38 54 74;
+    --fmb-raised4: 38 54 77;
+    --fmb-raised5: 41 59 81;
+    --fmb-border: 52 67 91;
+    --fmb-subtle: 82 98 123;
+    --fmb-success: 128 223 198;
+    --fmb-muted2: 130 146 170;
+    --fmb-muted3: 154 170 192;
+    --fmb-muted4: 174 189 208;
+    --fmb-muted: 177 190 208;
+    --fmb-secondary: 219 228 239;
+    --fmb-secondary2: 224 230 240;
+    --fmb-text: 244 246 251;
+    --fmb-text2: 245 247 251;
+    --fmb-error: 241 149 149;
+    --fmb-error2: 251 151 151;
+    --fmb-error3: 255 170 170;
+    --fmb-error4: 255 186 186;
+    --fmb-accent: 255 218 69;
+    --fmb-brand: 255 218 69;
+    --fmb-brand-hover: 255 227 113;
+    --fmb-ink: 16 24 39;
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --fmb-bg: 246 248 252;
+    --fmb-deep: 231 237 246;
+    --fmb-deep2: 231 237 246;
+    --fmb-dialog: 255 255 255;
+    --fmb-notice: 238 242 248;
+    --fmb-raised: 231 237 246;
+    --fmb-raised2: 231 237 246;
+    --fmb-panel: 255 255 255;
+    --fmb-icon: 237 242 250;
+    --fmb-selected: 230 237 248;
+    --fmb-raised3: 231 237 246;
+    --fmb-raised4: 231 237 246;
+    --fmb-raised5: 231 237 246;
+    --fmb-border: 125 138 157;
+    --fmb-subtle: 82 98 123;
+    --fmb-success: 8 118 93;
+    --fmb-muted2: 82 98 123;
+    --fmb-muted3: 82 98 123;
+    --fmb-muted4: 71 85 105;
+    --fmb-muted: 71 85 105;
+    --fmb-secondary: 51 65 85;
+    --fmb-secondary2: 51 65 85;
+    --fmb-text: 23 35 56;
+    --fmb-text2: 23 35 56;
+    --fmb-error: 180 35 53;
+    --fmb-error2: 180 35 53;
+    --fmb-error3: 180 35 53;
+    --fmb-error4: 180 35 53;
+    --fmb-accent: 133 83 0;
+  }
+  body { background-color: rgb(var(--fmb-bg)); color: rgb(var(--fmb-text)); }
+  .theme-options label { align-items: flex-start; gap: .75rem; padding: 1rem; }
+  .theme-options input { margin-top: .15rem; }
+  .theme-options svg { flex-shrink: 0; margin-top: .15rem; }
+  .theme-options span { min-width: 0; }
+  .theme-options strong { display: block; font-weight: 600; }
+  .theme-options small { display: block; margin-top: .35rem; font-size: 1rem; line-height: 1.5; color: rgb(var(--fmb-muted)); }
+  .towing-shops { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+  .towing-shops .auth-hint { margin: 0; }
+  .towing-shops .request-issues legend { margin-bottom: .75rem; }
+  .towing-more { border-block: 1px solid rgb(var(--fmb-border)); padding-block: .5rem; }
+  .towing-more summary { cursor: pointer; padding-block: .75rem; font-size: 1rem; font-weight: 600; }
+  .towing-more .request-field { margin-block: .75rem; }
+  .towing-map-empty { display: flex; align-items: flex-start; gap: .75rem; padding: 1rem; border: 1px solid rgb(var(--fmb-border)); border-radius: .75rem; background: rgb(var(--fmb-panel)); }
+  .towing-map-empty svg { color: rgb(var(--fmb-accent)); }
+  .towing-map-empty p { margin: 0; font-size: 1rem; line-height: 1.5; color: rgb(var(--fmb-muted)); }
+  .active-service { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem; min-width: 0; animation: buddy-screen 350ms ease-out both; }
+  .active-service h2 { margin: 0; font-size: 1.125rem; font-weight: 650; display: flex; align-items: center; gap: .5rem; }
+  .service-provider { display: flex; align-items: flex-start; gap: .75rem; }
+  .service-provider > svg { color: rgb(var(--fmb-accent)); }
+  .service-provider p { margin: .25rem 0 0; font-size: 1rem; color: rgb(var(--fmb-muted)); }
+  .service-arrival { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin: 0; font-size: 1.125rem; }
+  .service-location { margin: 0; border: 1px solid rgb(var(--fmb-border)); border-radius: .75rem; overflow: hidden; }
+  .service-location iframe { width: 100%; height: 240px; border: 0; }
+  .service-location figcaption { padding: .75rem; font-size: 1rem; color: rgb(var(--fmb-muted)); }
+  .service-timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+  .service-timeline li { display: flex; gap: .75rem; align-items: flex-start; }
+  .service-timeline svg { color: rgb(var(--fmb-muted)); margin-top: .25rem; }
+  .service-timeline li[data-state='current'] svg, .service-timeline li[data-state='completed'] svg { color: rgb(var(--fmb-accent)); }
+  .service-timeline strong { display: block; font-size: 1.125rem; font-weight: 600; overflow-wrap: anywhere; }
+  .service-timeline small { display: block; font-size: 1rem; margin-top: .25rem; color: rgb(var(--fmb-muted)); }
+  .service-pin, .service-update { border: 1px solid rgb(var(--fmb-border)); border-radius: .75rem; background: rgb(var(--fmb-panel)); padding: 1rem; }
+  .service-pin-value { display: block; font-size: 2rem; letter-spacing: .2em; margin-block: 1rem; overflow-wrap: anywhere; }
+  .service-update h3 { font-size: 1.125rem; font-weight: 650; margin: 0; }
+  .service-update p { white-space: pre-wrap; font-size: 1rem; line-height: 1.6; overflow-wrap: anywhere; }
+  .service-update small { display: block; font-size: 1rem; color: rgb(var(--fmb-muted)); }
+  .service-update img { display: block; width: 100%; max-height: 280px; object-fit: contain; margin-block: .75rem; border-radius: .5rem; }
+  .service-updates { display: flex; flex-direction: column; gap: 1rem; }
+

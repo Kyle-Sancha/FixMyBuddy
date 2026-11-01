@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import { canManageBooking, hasReceipt, reminderDue, todayInManila, validateReminder } from './historyValidation.js';
+const booking = { status: 'confirmed', canCancel: true, canReschedule: true, cancellationPolicy: { id: 'policy', text: 'Actual terms' } };
+assert.equal(canManageBooking(booking, 'cancel'), true);
+assert.equal(canManageBooking(booking, 'reschedule'), true);
+assert.equal(canManageBooking(booking, 'invalid'), false);
+assert.equal(canManageBooking({ ...booking, dispatchedAt: '2026-10-25T01:00:00Z' }, 'cancel'), false);
+for (const status of ['en_route', 'dispatched', 'in_progress', 'completed', 'cancelled']) assert.equal(canManageBooking({ ...booking, status }, 'reschedule'), false);
+assert.equal(canManageBooking({ ...booking, cancellationPolicy: {} }, 'cancel'), false);
+assert.equal(canManageBooking({ ...booking, canCancel: false }, 'cancel'), false);
+assert.equal(hasReceipt({ payment: { status: 'pending_verification' }, receiptAvailable: true }), false);
+assert.equal(hasReceipt({ payment: { status: 'verified' }, receiptAvailable: true }), true);
+assert.equal(hasReceipt({ payment: { status: 'verified' } }), false);
+const fields = { title: 'Service check', vehicleId: 'test', dueDate: '', targetMileage: '', currentMileage: '' };
+assert.notEqual(validateReminder(fields), '');
+assert.equal(validateReminder({ ...fields, dueDate: '2026-10-26' }), '');
+assert.notEqual(validateReminder({ ...fields, dueDate: '2026-02-30' }), '');
+assert.equal(validateReminder({ ...fields, targetMileage: 0 }), '');
+assert.notEqual(validateReminder({ ...fields, targetMileage: -1 }), '');
+assert.notEqual(validateReminder({ ...fields, targetMileage: null }), '');
+assert.equal(reminderDue({ targetMileage: 500, currentMileage: 500 }, '2026-10-25'), 'Due now');
+assert.equal(reminderDue({ dueDate: '2026-10-26' }, '2026-10-25'), 'Due 2026-10-26');
+assert.equal(reminderDue({ completedAt: '2026-10-25' }), 'Completed');
+assert.equal(todayInManila(new Date('2026-10-24T18:00:00Z')), '2026-10-25');
+console.log('Booking eligibility, receipt verification, reminder and timezone checks passed.');
+

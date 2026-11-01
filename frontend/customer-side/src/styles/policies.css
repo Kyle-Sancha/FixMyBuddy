@@ -1,0 +1,25 @@
+.policy-page { max-width: 850px; margin-inline: auto; padding: 1rem 1.25rem 2rem; min-height: 100dvh; }
+.policy-page > header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: .5rem 1.5rem; }
+.policy-page h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); font-weight: 750; margin-bottom: 1.25rem; }
+.policy-back { display: inline-flex; align-items: center; gap: .5rem; min-height: 48px; }
+.policy-page > footer { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.policy-page > footer a { display: inline-flex; align-items: center; min-height: 48px; text-decoration: underline; }
+.policy-modal { width: calc(100% - 24px); max-width: 760px; max-height: 90dvh; margin: auto; padding: 0; border: 1px solid rgb(var(--fmb-border)); border-radius: 16px; background: rgb(var(--fmb-bg)); color: rgb(var(--fmb-text)); overflow: hidden; }
+.policy-modal[open] { display: flex; flex-direction: column; }
+.policy-modal::backdrop { background: #070d19cc; }
+.policy-modal-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .75rem 1rem; border-bottom: 1px solid rgb(var(--fmb-border)); }
+.policy-modal-header h2 { font-size: 1.25rem; font-weight: 700; }
+.policy-modal-header button { display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0; border-radius: 8px; }
+.policy-modal-body { overflow-y: auto; padding: 1rem 1.25rem; overscroll-behavior: contain; }
+.policy-modal-footer { padding: .75rem 1rem max(.75rem, env(safe-area-inset-bottom)); border-top: 1px solid rgb(var(--fmb-border)); }
+.policy-document { font-size: 1rem; line-height: 1.75; overflow-wrap: anywhere; }
+.policy-draft { padding: 1rem; border: 1px solid rgb(var(--fmb-accent) / .6); border-radius: 12px; background: rgb(var(--fmb-brand) / .1); }
+.policy-draft p { margin: .5rem 0 0; }
+.policy-language { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin-block: 1rem; font-weight: 600; }
+.policy-language select { min-height: 48px; padding: .5rem .75rem; border: 1px solid rgb(var(--fmb-border)); border-radius: 8px; background: rgb(var(--fmb-panel)); color: rgb(var(--fmb-text)); font-size: 1rem; }
+.policy-contents { display: grid; gap: .5rem; margin-block: 1.25rem 2rem; }
+.policy-document a { color: rgb(var(--fmb-accent)); text-decoration: underline; text-underline-offset: .2em; }
+.policy-document section { margin-block: 1.75rem; scroll-margin-top: 1rem; }
+.policy-document h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: .5rem; }
+.policy-document section p { margin: 0; color: rgb(var(--fmb-muted)); }
+.policy-document :is(a, select):focus-visible, .policy-modal button:focus-visible { outline: 3px solid rgb(var(--fmb-accent)); outline-offset: 3px; }
